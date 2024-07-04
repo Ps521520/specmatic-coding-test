@@ -29,7 +29,7 @@ import java.time.LocalDateTime
 
     @PostMapping
     fun createProduct(@RequestBody details: Product): ResponseEntity<Any> {
-        if(details.name.matches(Regex("^[a-zA-Z ]+$")) && details.name != "true" && details.name != "false" && details.inventory >=1 && details.inventory <= 9999){
+        if(details.name.matches(Regex("^[a-zA-Z ]+$")) && details.name != "true" && details.name != "false" && details.inventory >=1 && details.inventory <= 9999 && details.cost != null){
             val productType = ProductType.entries.map { it.name }
             if(productType.contains(details.type)){
                 return ResponseEntity.status(HttpStatus.CREATED).body(ProductId(productService.createProduct(details)))

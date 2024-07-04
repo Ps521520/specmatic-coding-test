@@ -20,7 +20,7 @@ class ProductService {
 
     fun createProduct(details: Product): Int {
         val id = idGenerator.getAndIncrement()
-        val product = Product(id, details.name, details.type, details.inventory)
+        val product = Product(id, details.name, details.type, details.inventory, details.cost)
         products[id] = product
         return id
     }
