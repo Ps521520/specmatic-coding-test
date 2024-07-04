@@ -12,6 +12,7 @@ JDK 17+ OR Specmatic IDE Plugin
 #### Java/Kotlin Steps
 
 From a terminal, run the following command:
+
 ```shell
 mvn clean test
 ```
