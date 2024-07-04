@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
   title: Order API
-  version: '2.0'
+  version: "2.0"
 servers:
-  - url: 'http://localhost:3000'
+  - url: "http://localhost:3000"
 paths:
   /products:
     get:
@@ -12,10 +12,10 @@ paths:
         - name: type
           in: query
           schema:
-            $ref: '#/components/schemas/ProductType'
+            $ref: "#/components/schemas/ProductType"
           examples:
             GET_PRODUCTS:
-              value: 'gadget'
+              value: "gadget"
       responses:
         "200":
           description: List of products in the response
@@ -24,27 +24,27 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Product'
+                  $ref: "#/components/schemas/Product"
               examples:
                 GET_PRODUCTS:
                   value:
                     - id: 1
-                      name: 'XYZ Phone'
-                      type: 'gadget'
+                      name: "XYZ Phone"
+                      type: "gadget"
                       inventory: 2
         "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponseBody'
+                $ref: "#/components/schemas/ErrorResponseBody"
     post:
       summary: POST /products
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductDetails'
+              $ref: "#/components/schemas/ProductDetails"
             examples:
               CREATE_PRODUCT:
                 value:
@@ -57,7 +57,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductId'
+                $ref: "#/components/schemas/ProductId"
               examples:
                 CREATE_PRODUCT:
                   value:
@@ -67,7 +67,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponseBody'
+                $ref: "#/components/schemas/ErrorResponseBody"
 
 components:
   schemas:
@@ -78,7 +78,7 @@ components:
         name:
           type: string
         type:
-          $ref: '#/components/schemas/ProductType'
+          $ref: "#/components/schemas/ProductType"
         inventory:
           type: integer
           minimum: 1
@@ -106,8 +106,8 @@ components:
     Product:
       title: Product
       allOf:
-        - $ref: '#/components/schemas/ProductId'
-        - $ref: '#/components/schemas/ProductDetails'
+        - $ref: "#/components/schemas/ProductId"
+        - $ref: "#/components/schemas/ProductDetails"
     ErrorResponseBody:
       type: object
       properties:
